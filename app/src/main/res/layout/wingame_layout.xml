@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/winhangman"
+    android:padding="16dp">
+
+
+
+    <TextView
+        android:id="@+id/correctAnsTExtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/wongAnsTextView"
+        android:textSize="32sp"
+        android:text="@string/correctAnswers"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        />
+
+    <TextView
+        android:id="@+id/wongAnsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/contuineBtnWin"
+        android:textSize="32sp"
+        android:text="@string/wrongAnswers"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+
+        />
+
+    <Button
+        android:id="@+id/contuineBtnWin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textSize="32sp"
+
+        android:text="@string/gameOver"
+        android:textColor="@color/white"
+
+        android:background="@drawable/button_border"
+        android:onClick="clickWinContinue"
+
+        />
+
+</RelativeLayout>

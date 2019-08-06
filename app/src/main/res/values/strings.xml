@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Hangman</string>
+
+    <string name="_1">1</string>
+    <string name="_X">X:</string>
+    <string name="_10">110</string>
+    <string name="_A">A</string>
+    <string name="_B">B</string>
+    <string name="_C">C</string>
+    <string name="_D">D</string>
+    <string name="_E">E</string>
+    <string name="_F">F</string>
+    <string name="_G">G</string>
+    <string name="_H">H</string>
+    <string name="_I">I</string>
+    <string name="_J">J</string>
+    <string name="_K">K</string>
+    <string name="_L">L</string>
+    <string name="_M">M</string>
+    <string name="_N">N</string>
+    <string name="_O">O</string>
+    <string name="_P">P</string>
+    <string name="_Q">Q</string>
+    <string name="_R">R</string>
+    <string name="_S">S</string>
+    <string name="_T">T</string>
+    <string name="_U">U</string>
+    <string name="_W">W</string>
+    <string name="_V">V</string>
+    <string name="__X">X</string>
+    <string name="_Y">Y</string>
+    <string name="_Z">Z</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="startBtnText">START GAME</string>
+    <string name="addBtnText">ADD WORD</string>
+    <string name="title_activity_add_player">AddPlayerActivity</string>
+    <string name="addWord">WORD</string>
+    <string name="gameOver">Continue</string>
+    <string name="correctAnswers">Correct answers: </string>
+    <string name="wrongAnswers">Wrong answers: </string>
+</resources>
