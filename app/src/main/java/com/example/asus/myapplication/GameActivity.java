@@ -3,6 +3,7 @@ package com.example.asus.myapplication;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,15 +23,27 @@ public class GameActivity extends AppCompatActivity {
 
     private int correctAnswers;
     private int wrongAnswers;
-
+    private int secs ;
+    private TextView timeTextView;
+    private boolean running = false;
+    private boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_layout);
         textView = findViewById(R.id.textWord);
+        timeTextView = findViewById(R.id.timeTextView);
+        running = true;
         correctAnswers = 0;
         wrongAnswers = 0;
+        secs = 0;
+
+        if(savedInstanceState != null){
+            running = savedInstanceState.getBoolean("Running");
+            secs = savedInstanceState.getInt("Secs");
+            wasRunning = savedInstanceState.getBoolean("WasRunning");
+        }
 
 
         WordsDatabaseHelper wdh = DataHolder.getDate();
@@ -57,7 +70,32 @@ public class GameActivity extends AppCompatActivity {
             word.add(String.valueOf(e));
             word.add(" ");
         }
+        runTimer();
 
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("Secs", secs);
+        outState.putBoolean("Running", running);
+        outState.putBoolean("WasRunning", wasRunning);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(wasRunning)
+            running = true;
+    }
+
+    @Override
+    protected void onPause() {
+            super.onPause();
+            wasRunning = running;
+            running = false;
 
     }
 
@@ -90,6 +128,36 @@ public class GameActivity extends AppCompatActivity {
         for (char anArr : arr) {
             textView.append("_ ");
         }
+    }
+
+    private void runTimer(){
+
+
+        final Handler handler = new Handler();
+
+        handler.post(() -> {
+
+            int minutes = (secs%3600)/60;
+            int seconds = secs%60;
+
+            String time = String.format("%02d:%02d", minutes, seconds);
+
+            timeTextView.setText(time);
+
+            if(running){
+
+                secs++;
+
+            }
+
+            handler.postDelayed(this::runTimer, 1000);
+
+
+
+        });
+
+
+
     }
 
     private void refreshTextView(String letter, List<String> word, TextView textView) {
@@ -149,6 +217,7 @@ public class GameActivity extends AppCompatActivity {
             Intent intent = new Intent(this, WinGameActivity.class);
             intent.putExtra("Correct", correctAnswers);
             intent.putExtra("Wrong", counter);
+            intent.putExtra("Time", secs);
 
             this.finish();
 

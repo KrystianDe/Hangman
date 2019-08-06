@@ -12,10 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textWord"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/timeTextView"
+
         android:id="@+id/imageHang"
         android:src="@mipmap/hang0"
        />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="right"
+        />
 
     <!--<Button-->
         <!--android:id="@+id/buttonZ"-->
