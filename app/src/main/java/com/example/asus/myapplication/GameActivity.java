@@ -75,11 +75,10 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case 4:
                 imageView.setImageResource(R.mipmap.hanglast);
-                break;
-            case 5:
                 this.finish();
                 startActivity(new Intent(this, GameOverActivity.class));
                 break;
+
             default:
                 imageView.setImageResource(R.mipmap.hang0);
                 break;

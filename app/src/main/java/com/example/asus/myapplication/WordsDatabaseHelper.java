@@ -29,6 +29,7 @@ public class WordsDatabaseHelper extends SQLiteOpenHelper {
         insertWord(db, "MONKEY");
 
 
+
     }
 
     @Override
@@ -61,7 +62,7 @@ public class WordsDatabaseHelper extends SQLiteOpenHelper {
         }
 
         query.close();
-        db.close();
+
 
         return words;
 
@@ -77,7 +78,7 @@ public class WordsDatabaseHelper extends SQLiteOpenHelper {
         db.insert("WORDEES", null, contentValues);
 
 
-        db.close();
+
 
     }
 }
